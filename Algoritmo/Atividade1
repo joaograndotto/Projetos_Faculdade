@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+"""Atividade1 .ipynb
+
+
+**Celsius para Fahrenheit**
+"""
+
+# Varíaveis
+c = 100
+
+#Calculo
+f = (c*9/5) + 32
+print("Temperatura  em Celsius = %.0f" %c  )
+print("\nf = (%.1f * 9/5) + 32  = %.0fº  "  % (c,f) )
+
+# Resultado Final
+print("\nTemperatura em Fahrenheit  = %.0f" %f)
+
+"""  
+ **Laço  de repetiçao (WHILE)** 
+
+
+"""
+
+#Variaveis 
+numero = 1 
+soma  = 1
+while(numero <= 210):
+   print(numero)
+   soma = soma + 1
+   numero = numero + (soma)
+
+"""Laço de repetiçao (FOR)
+
+"""
+
+lista = list(range(1,21))
+ soma = 0
+ for elemento in lista:
+   soma = soma + elemento 
+   print(soma)

@@ -1,0 +1,151 @@
+# -*- coding: utf-8 -*-
+"""ATIVIDADE FINAL6 
+
+
+Construa uma função em Python que verifique se a expressão **(p ∧(¬(¬p ∨q))) ∨(p ∧q)) →r^s** é uma taulogia. A função deve considerar cada possibilidade de p=V/F, q=V/F, r=V/F e s=V/F e retornar True caso a expressão seja uma tautologia e False, caso contrário.
+"""
+
+start = 'S'
+while (start == 'S'):
+ 
+ 
+  def expressao():
+
+    for p in (True, False):
+      for q in (True, False):
+        for r in (True, False):
+          for s in (True, False):
+            #(p ∧(¬(¬p ∨q))) ∨(p ∧q)) →r^s 
+            #Expressão (p ∧ (¬(¬p ∨ q)))
+            expr1 = p or (not ((not p) or q ))
+            #Expressão (p ∧ q))
+            expr2 = p and q 
+            #Expressão (p ∧ (¬(¬p ∨ q))) ∨ (p ∧ q))
+            expr3 = expr1 or expr2
+            #Expressão r^s 
+            expr4 = r and s
+            #Expressão global atribui ela a true pois unica forma dessa expressão ser uma tautologia E o caso aonde a expr4 seja falsa
+            #Pois a unica forma desse conectivo ser falsa e quando a consequência e falsa.
+            print('-='*50 )
+            print(f"- ({p} ∧ (¬(¬{p} ∨ {q})))∨({p} ∧ {q})) → {r}^{s} ")
+            print(f'- {expr1} ∨ {expr2}')
+            print(f'- {expr3 } → {expr4} ')
+#Expressão global atribui ela a true pois a  unica forma dessa expressão ser uma tautologia e o caso aonde a expr4 seja falsa
+#Pois a unica forma desse conectivo(se então) ser falsa e quando a consequência e falsa.
+    expr5 = True
+    if (expr4 ==  False):
+      expr5 = False
+      print(f"- \n\n{expr5}\n\n É uma contigência")
+
+  print('~=' * 44)
+  
+  print("\n")
+
+ 
+  expressao()
+ 
+  start = input("\nReiniciar processo? (S / N): ").upper()
+
+"""Crie uma função que execute a multiplicação de duas matrizes e imprima na tela a matriz resultante. O usuário é quem deve informar as dimensões e os valores da matriz01 e da matriz02. Antes de realizar a multiplicação, a função deve verificar se o número de colunas da 1ª matriz é igual ao número de linhas da 2ª matriz, já que essa é uma condição necessária para que possa haver a multiplicação de matrizes. A operação deverá ser feita multiplicando os valores da linha da 1º matriz pelos valores da coluna da 2º matriz, onde os elementos devem ser somados."""
+
+def matriz(linha01, coluna01, linha02, coluna02):
+
+
+
+  #Colocando valores na matriz01
+  matriz01 = []
+  print("\nValores para a matriz01\n")
+  for l in range(linha01):
+      linha_construida01 = []
+      for c in range(coluna01):
+          valor01 = int(input(f"Digite o número para  a posição[{l}/{c}] "))
+          linha_construida01.append(valor01)
+      matriz01.append(linha_construida01)
+     
+  #Colocando valores na matriz02
+  matriz02 = []
+  print("\nValores para a matriz 02\n")
+  for l2 in range(linha02):
+      linha_construida02 = []
+      for c2 in range(coluna02):
+          valor02 = int(input(f"Digite o número para a posição [{l2}/{c2}] "))
+          linha_construida02.append(valor02)
+      matriz02.append(linha_construida02)
+
+  print('≃~'*30) 
+  #Imprimindo matriz01
+  print('\nMatriz 01\n')
+  for i in matriz01:
+    for elemento in i:
+      print(elemento, end=' ')
+    print()  
+  print("\n\n")
+
+  print('≃~'*30) 
+  print('\nMatriz 02\n')
+  #Imprimindo matriz02
+  for lista in matriz02:
+    for elemento in lista:
+      print(elemento, end=' ')
+    print()
+  print("\n\n")
+  print('≃~'*30) 
+
+  numero_linhas_matriz01 = len(matriz01)
+  numero_colunas_matriz01 = len(matriz01[0])
+  numero_linhas_matriz02 = len(matriz02)
+  numero_colunas_matriz02 = len(matriz02[0])
+
+
+  #Verificando se a possibilidade de multiplicação
+  if numero_colunas_matriz01 != numero_linhas_matriz02:
+    print(' Não e possível fazer a multiplicação!!')
+    print('≃~'*30) 
+  else:
+    matrizresultante =[]
+
+    for i in range(numero_linhas_matriz01):
+      matrizresultante.append([])
+      for j in range(numero_colunas_matriz02):
+        matrizresultante[i].append(0)
+        for k in range(numero_colunas_matriz01):
+          matrizresultante[i][j] =  matrizresultante[i][j] + (matriz01[i][k] * matriz02[k][j])
+
+   
+    print('\nMatriz Resultante\n\n ')
+    #Escrevendo MatrizResultante     
+    for r in matrizresultante:
+      for i in r :
+        print(i, end='  ')
+      print()
+    print("\n\n")           
+    print('≃~'*30) 
+
+    #Função para escrever a matriz resultante
+    def arquivoM(matrizR):
+      arquivo = open('Matriz_Resultante.txt', '+w')
+      for r in matrizR:
+        arquivo.write (str (r) + '\t')
+      print()
+      
+
+    
+      #Ler arquivo
+      print("Lendo arquivo com  matriz resultante\n\n")
+      arquivo = open('Matriz_Resultante.txt', "r")
+      for linha in arquivo.readlines():
+          print(linha)
+      arquivo.close()
+
+
+    arquivoM(matrizresultante)
+
+
+# Pedindo dimensões das matrizes
+
+linha01 = int(input("Digite a quatidade de linhas da Matriz01:\n>>> "))
+
+coluna01 = int(input("Digite números de colunas da Matriz01:\n>>> "))
+linha02 = int(input("Digite a quatidade de linhas da Matriz02:\n>>> "))
+coluna02 = int(input("Digite números de colunas da Matriz02:\n>>> "))
+matriz(linha01, coluna01, linha02, coluna02)
