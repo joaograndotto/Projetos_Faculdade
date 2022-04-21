@@ -1,0 +1,54 @@
+--1.
+SELECT nome, datafundacao, faturamentoanoanterior 
+FROM estudio;
+
+--2.
+SELECT e.nome, f.nome, f.anolancamento
+FROM estudio AS e, filmes AS f
+WHERE f.codestudio = e.cod
+ORDER BY e, f;
+
+--3. 
+SELECT a.nome, a.sexo, at.personagem, at.cachê 
+FROM atores AS a, atuam as at, filmes as f 
+WHERE a.cod = at.codatores and f.cod = at.codfilme;
+
+--4.
+select min(anolancamento)
+from filmes;
+
+--5.
+create view Wagner as
+Select a.personagem, a.cachê, e.proprietario
+from atuam as a, estudio as e, atores as at, filmes as filme
+where at.cod = a.codatores and filme.cod = a.codfilme and e.cod = filme.codestudio  and  at.nome like '%Wagner Moura%';
+
+
+--6.
+Select count(*) 
+from filmes 
+where anolancamento > 1998 and anolancamento < 2008;
+
+--8.
+select filme.nome, ator.nome
+from filmes as filme, atuam as a, atores as ator
+where ator.cod = a.codatores and filme.cod = a.codfilme and a.cachê > 190000.00;
+
+--9.
+select e.nome, filme.nome, ator.nome
+from filmes as filme, atuam as a, atores as ator, estudio as e
+where ator.cod = a.codatores and filme.cod = a.codfilme and e.cod = filme.codestudio  and  filme.nome like '%Homem de Ferro%';
+
+--10.
+select max(cachê)
+from atuam;
+
+
+
+
+
+
+
+
+
+
