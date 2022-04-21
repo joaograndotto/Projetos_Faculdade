@@ -1,0 +1,17 @@
+body{
+    padding-top: 50px;
+    background-image:  linear-gradient(#5958573f,#8c8c8b4e), url("https://www.vendaotimizada.com/wp-content/uploads/2018/05/ideias-para-lojas-de-roupas.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+
+}
+.principal{
+    padding: 40px 15px;
+    text-align: center;
+    color: #F2F2F2;
+    background-image: linear-gradient(#595857d0,#8c8c8bc4);
+    margin-top: 100px;
+}
