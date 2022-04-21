@@ -1,0 +1,25 @@
+--1->
+
+--Listar o primeiro nome e as horas trabalhadas por funcionários no projeto de código 3, em ordem decrescente de horas trabalhadas;
+--Obter o nome completo dos funcionários com salário maior que R$ 30.000,00 e que trabalham no departamento de Administracao.
+--Obter, a partir da tabela trabalhaEm, os números mínimo, máximo e médio de horas trabalhadas em cada projeto. O resultado deve possuir colunas nomeadas: projeto, --mínimo, máximo e média.
+
+
+
+
+SELECT pnome,  horas 
+FROM funcionario, trabalhaem 
+WHERE fcpf = cpf  AND projnumero = 3
+ORDER BY horas DESC;
+
+--2->
+SELECT pnome, unome
+FROM funcionario, departamento
+WHERE salario > 30000 AND dnome = 'Administracao'
+
+--3->
+SELECT projnumero AS projeto, MIN(horas) AS minimo, MAX(horas) AS maximo ,AVG(horas) AS media 
+FROM trabalhaem
+GROUP BY projnumero
+ORDER BY projeto;
+
