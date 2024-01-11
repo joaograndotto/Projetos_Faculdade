@@ -1,2 +1,2 @@
-# Projetos_Faculdade
-Atividades  e trabalhos desenvolvidos na faculdade
+# Projetos da Faculdade
+Atividades e trabalhos desenvolvidos na faculdade
